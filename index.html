@@ -15,20 +15,22 @@
 <meta property="og:image" content="assets/img/hero-1280.jpg">
 
 <!-- Preload LCP image + critical fonts -->
-<link rel="preload" as="image" href="assets/img/hero-1280.webp" imagesrcset="assets/img/hero-768.webp 768w, assets/img/hero-1280.webp 1280w, assets/img/hero-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/hero-1280.webp" imagesrcset="assets/img/hero-768.webp 768w, assets/img/hero-1280.webp 1280w, assets/img/hero-1536.webp 1536w, assets/img/hero-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/instrument-serif-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-tight.woff2" crossorigin>
 
 <style>
   /* ---------- Fonts (self-hosted, swap) ---------- */
   @font-face{ font-family:'Instrument Serif'; font-style:normal; font-weight:400; font-display:swap; src:url('assets/fonts/instrument-serif-400.woff2') format('woff2'); }
+  /* Metric-matched fallback (Georgia) so the swap to Instrument Serif causes no layout shift. */
+  @font-face{ font-family:'Instrument Serif Fallback'; src:local('Georgia'),local('Times New Roman'); size-adjust:84.90%; ascent-override:116.61%; descent-override:36.51%; line-gap-override:0%; }
   @font-face{ font-family:'Inter Tight'; font-style:normal; font-weight:400 600; font-display:swap; src:url('assets/fonts/inter-tight.woff2') format('woff2'); }
   @font-face{ font-family:'DM Mono'; font-style:normal; font-weight:500; font-display:swap; src:url('assets/fonts/dm-mono-500.woff2') format('woff2'); }
 
   /* ---------- Tokens & reset ---------- */
   :root{
     --cream:#FFFDEE; --cream-2:#FFFBE4; --ink:#412B20; --accent:#FDE54F;
-    --serif:'Instrument Serif',Georgia,serif;
+    --serif:'Instrument Serif','Instrument Serif Fallback',Georgia,serif;
     --sans:'Inter Tight',system-ui,-apple-system,Segoe UI,sans-serif;
     --mono:'DM Mono',ui-monospace,monospace;
     --maxw:1440px;
@@ -46,7 +48,7 @@
   .hero-title,.about h2,.features-head h2,.video-inner h2,.footer-top h2,#loader .lw,.brand .mark{ font-weight:400; }
 
   /* ---------- Keyframes ---------- */
-  @keyframes heroIn { from{ opacity:0; transform:translateY(48px); letter-spacing:.18em; } to{ opacity:1; transform:translateY(0); letter-spacing:.01em; } }
+  @keyframes heroIn { from{ opacity:0; transform:translateY(40px); } to{ opacity:1; transform:none; } }
   @keyframes kenburns { from{ transform:scale(1); } to{ transform:scale(1.12); } }
   @keyframes navDown { from{ opacity:0; transform:translateY(-100%); } to{ opacity:1; transform:translateY(0); } }
   @keyframes floatA { 0%,100%{ transform:rotate(-3deg) translateY(0); } 50%{ transform:rotate(-3deg) translateY(-16px); } }
@@ -82,7 +84,7 @@
   .hero-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:kenburns 26s ease-in-out infinite alternate; will-change:transform; }
   .hero-overlay{ position:absolute; inset:0; background:rgba(0,0,0,.28); }
   .hero-grad{ position:absolute; left:0; right:0; bottom:0; height:42%; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 100%); }
-  .hero-title{ position:relative; margin:0 0 1.5vh; font-family:var(--serif); font-size:clamp(64px,25vw,382px); line-height:.95; letter-spacing:.01em; color:#FFFDEE; text-align:center; text-wrap:balance; animation:heroIn 1.5s .15s cubic-bezier(.16,.84,.3,1) both; }
+  .hero-title{ position:relative; margin:0 0 1.5vh; font-family:var(--serif); font-size:clamp(64px,25vw,382px); line-height:.95; letter-spacing:.01em; color:#FFFDEE; text-align:center; text-wrap:balance; animation:heroIn .7s .05s cubic-bezier(.16,.84,.3,1) both; }
 
   /* ---------- About ---------- */
   .about{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:160px 24px; }
@@ -227,7 +229,7 @@
   <header class="hero" id="top">
     <img class="hero-bg" alt="" fetchpriority="high" decoding="async"
          src="assets/img/hero-1280.webp"
-         srcset="assets/img/hero-768.webp 768w, assets/img/hero-1280.webp 1280w, assets/img/hero-1920.webp 1920w"
+         srcset="assets/img/hero-768.webp 768w, assets/img/hero-1280.webp 1280w, assets/img/hero-1536.webp 1536w, assets/img/hero-1920.webp 1920w"
          sizes="100vw" width="1920" height="1440">
     <div class="hero-overlay"></div>
     <div class="hero-grad"></div>
@@ -265,7 +267,7 @@
       </a>
     </article>
     <article class="card-img" data-reveal>
-      <img src="assets/img/viewing.webp" alt="Sunlit interior of the Harvasta cottage" width="566" height="566" loading="lazy" decoding="async">
+      <img src="assets/img/viewing.webp" alt="Sunlit interior of the Harvasta cottage" width="520" height="520" loading="lazy" decoding="async">
     </article>
     <article class="card card-own" data-reveal>
       <div class="eyebrow">Flexible Ways to Own</div>
