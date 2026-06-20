@@ -1,5 +1,5 @@
 const sharp = require('sharp');
-const src = '../harvasta/project/assets/';
+const src = 'harvasta/project/assets/';
 const out = 'assets/img/';
 
 const jobs = [

@@ -9,5 +9,8 @@ Thumbs.db
 *.log
 
 # Build tooling lockfiles (site is dependency-free at runtime)
-site/package-lock.json
-site/package.json
+package-lock.json
+package.json
+
+# Vercel
+.vercel/

@@ -1,0 +1,10 @@
+# Keep the deployment lean — only the static site ships to Vercel.
+# Source design bundle (large raw assets, prototype, icon data):
+harvasta/
+
+# Build-time tooling (not needed at runtime):
+optimize.js
+node_modules/
+
+# Repo docs
+README.md
