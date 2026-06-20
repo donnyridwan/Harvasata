@@ -88,8 +88,8 @@
 
   /* ---------- About ---------- */
   .about{ padding:160px 24px; }
-  .about-block{ max-width:780px; margin:0 auto; }
-  .about .label{ font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(65,43,32,.5); margin-bottom:28px; }
+  .about-block{ max-width:1080px; margin:0 auto; display:grid; grid-template-columns:200px 1fr; gap:48px; align-items:start; }
+  .about .label{ font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(65,43,32,.5); padding-top:14px; }
   .about h2{ font-family:var(--serif); font-size:54px; line-height:1.18; text-wrap:pretty; }
   .about p{ margin-top:40px; max-width:585px; font-size:25px; line-height:1.28; }
   .chips{ margin-top:44px; display:flex; flex-wrap:wrap; gap:12px; max-width:560px; }
@@ -176,6 +176,8 @@
   @media (max-width:820px){
     nav.site-nav{ padding:14px 20px; }
     .nav-menu{ display:none; }
+    .about-block{ grid-template-columns:1fr; gap:16px; }
+    .about .label{ padding-top:0; }
     .cards{ grid-template-columns:1fr; }
     .card, .card-img{ min-height:420px; }
     .feature-cols{ grid-template-columns:1fr; gap:40px; }
@@ -241,6 +243,7 @@
   <section class="about" id="about">
     <div class="about-block">
       <div class="label">About Us</div>
+      <div class="about-content">
       <h2 data-reveal>Cozy cold-spring villa with a modern kitchen, fireplace, and private deck — for sale.</h2>
       <p data-reveal>Tucked between the mountains and the open sky, Harvasta is where stillness meets comfort. A retreat designed for those who want to slow down, breathe deeper, and live a little closer to nature.</p>
       <div class="chips" data-stagger>
@@ -252,6 +255,7 @@
         <span class="chip" data-reveal style="transform:rotate(3deg)">Mountain View</span>
         <span class="chip" data-reveal style="transform:rotate(-8deg)">Travel</span>
         <span class="chip" data-reveal style="transform:rotate(5deg)">Private Deck</span>
+      </div>
       </div>
     </div>
   </section>
