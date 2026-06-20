@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="#412B20"></rect>
+<text x="50" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="34" fill="#FFFDEE">H</text>
+</svg>
+</template>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter+Tight:wght@400;500;600&amp;family=DM+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ margin:0; background:#FFFDEE; -webkit-font-smoothing:antialiased; }
+  ::selection{ background:#FDE54F; color:#412B20; }
+
+  @keyframes heroIn { from{ opacity:0; transform:translateY(48px); letter-spacing:.18em; } to{ opacity:1; transform:translateY(0); letter-spacing:.01em; } }
+  @keyframes kenburns { from{ transform:scale(1); } to{ transform:scale(1.12); } }
+  @keyframes navDown { from{ opacity:0; transform:translateY(-100%); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes floatA { 0%,100%{ transform:rotate(-3deg) translateY(0); } 50%{ transform:rotate(-3deg) translateY(-16px); } }
+  @keyframes floatB { 0%,100%{ transform:rotate(2deg) translateY(0); } 50%{ transform:rotate(2deg) translateY(14px); } }
+  @keyframes pulseRing { 0%{ box-shadow:0 0 0 0 rgba(65,43,32,.35);} 70%{ box-shadow:0 0 0 26px rgba(65,43,32,0);} 100%{ box-shadow:0 0 0 0 rgba(65,43,32,0);} }
+
+  #h-loader{ position:fixed; inset:0; z-index:200; background:#FFFDEE; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:34px; transition:opacity .6s ease; }
+  #h-loader .lw{ font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(34px,6vw,64px); letter-spacing:.22em; color:#412B20; opacity:1; padding-left:.22em; }
+  #h-loader .track{ position:relative; width:min(280px,60vw); height:1.5px; background:rgba(65,43,32,.16); overflow:hidden; }
+  #h-loader .fill{ position:absolute; left:0; top:0; height:100%; width:0%; background:#412B20; transition:width .12s linear; }
+  #h-loader .pct{ font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.18em; color:rgba(65,43,32,.5); }
+
+  .hero-bg{ animation:kenburns 26s ease-in-out infinite alternate; will-change:transform; }
+  .hero-title{ animation:heroIn 1.5s .15s cubic-bezier(.16,.84,.3,1) both; }
+  .nav-in{ animation:navDown 1s .1s cubic-bezier(.16,.84,.3,1) both; }
+  .float-a{ animation:floatA 7s ease-in-out infinite; }
+  .float-b{ animation:floatB 8.5s ease-in-out infinite; }
+  .play-pulse{ animation:pulseRing 2.6s ease-out infinite; }
+
+  .anim-on [data-reveal]{ opacity:0; transform:translateY(36px); transition:opacity .85s cubic-bezier(.16,.84,.3,1), transform .85s cubic-bezier(.16,.84,.3,1); }
+  .anim-on [data-reveal].in{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .anim-on [data-reveal]{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .hero-title,.hero-bg,.nav-in,.float-a,.float-b,.play-pulse{ animation:none !important; }
+  }
+</style>
+<script src="harvasta-icons.js"></script>
+<meta name="ext-resource-dependency" content="assets/cat-1-c.jpg">
+<meta name="ext-resource-dependency" content="assets/video-1-c.jpg">
+<meta name="ext-resource-dependency" content="assets/video-2-c.jpg">
+</helmet>
+
+<div style="background: #FFFDEE; color: #412B20; font-family: 'Inter Tight',sans-serif; overflow-x: hidden; position: static; display: flex; flex-direction: column; align-items: center; justify-content: center">
+
+  <!-- LOADER -->
+  <div id="h-loader" ref="{{ loaderRef }}">
+    <div class="lw">HARVASTA</div>
+    <div class="track"><div class="fill" ref="{{ fillRef }}"></div></div>
+    <div class="pct" ref="{{ pctRef }}">00</div>
+  </div>
+
+  <!-- NAV -->
+  <nav ref="{{ navRef }}" class="nav-in" style="position: fixed; top: 0; left: 0px; right: 0; z-index: 50; display: flex; justify-content: space-between; padding: 18px 40px; background: transparent; border-bottom: 1px solid transparent; transition: background .35s ease, border-color .35s ease; width: 100%; flex-direction: column; align-items: center">
+    
+    
+    
+  <div style="box-sizing: border-box; display: flex; flex-direction: row; gap: 12px; max-width: 1440px; width: 100%; justify-content: space-between; align-items: center"><a href="#top" data-navtext="1" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #FFFDEE; transition: color .35s ease">
+      <span style="width:30px; height:30px; border-radius:50%; border:1.5px solid currentColor; display:flex; align-items:center; justify-content:center; font-family:'Instrument Serif',serif; font-size:16px;">H</span>
+      <span style="display:flex; flex-direction:column; line-height:1.15; font-size:10px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;">
+        <span>Cold Spring</span>
+        <span style="opacity:.7;">Luxury Cottage</span>
+      </span>
+    </a><div style="display: flex; align-items: center; gap: 36px">
+      <a href="#about" data-navtext="1" style="text-decoration:none; color:#FFFDEE; font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; transition:color .35s ease, opacity .2s ease;" style-hover="opacity:.6;">Overview</a>
+      <a href="#features" data-navtext="1" style="text-decoration:none; color:#FFFDEE; font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; transition:color .35s ease, opacity .2s ease;" style-hover="opacity:.6;">Gallery</a>
+      <a href="#footer" data-navtext="1" style="text-decoration:none; color:#FFFDEE; font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; transition:color .35s ease, opacity .2s ease;" style-hover="opacity:.6;">Location</a>
+    </div><a href="#footer" data-navtext="1" data-contact="1" style="text-decoration: none; color: #FFFDEE; border: 1.5px solid currentColor; border-radius: 100px; padding: 9px 22px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; transition: color .35s ease, background .25s ease" style-hover="background:rgba(255,255,255,0.14);">Contact</a></div></nav>
+
+  <!-- HERO -->
+  <header id="top" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 24px 0; overflow: hidden; width: 100%">
+    <div class="hero-bg" style="position:absolute; inset:0; background:url('assets/hero-c.jpg') center/cover no-repeat;"></div>
+    <div ref="{{ overlayRef }}" style="position: absolute; inset: 0; background: rgba(0,0,0,0.28); width: 100%"></div>
+    <div style="position:absolute; left:0; right:0; bottom:0; height:42%; background:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);"></div>
+    <h1 class="hero-title" style="position:relative; margin:0 0 1.5vh; font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(64px,25vw,382px); line-height:.95; letter-spacing:.01em; color:#FFFDEE; text-align:center; text-wrap:balance;">HARVASTA</h1>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" style="max-width: 1440px; margin: 0 auto; padding: 160px 120px; display: flex; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; justify-content: center">
+    <div style="font-size: 25px; color: #412B20; align-self: stretch; height: 524px; width: 60%">About Us</div>
+    <div style="max-width: 760px; width: 100%">
+      <h2 data-reveal="" style="margin:0; font-family:'Instrument Serif',serif; font-weight:400; font-size:54px; line-height:1.18; color:#412B20; text-wrap:pretty;">Cozy cold-spring villa with a modern kitchen, fireplace, and private deck — for sale.</h2>
+      <p data-reveal="" style="margin:40px 0 0; max-width:585px; font-size:25px; line-height:1.28; color:#412B20;">Tucked between the mountains and the open sky, Harvasta is where stillness meets comfort. A retreat designed for those who want to slow down, breathe deeper, and live a little closer to nature.</p>
+      <div data-stagger="" style="margin-top:44px; display:flex; flex-wrap:wrap; gap:12px; max-width:520px;">
+        <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="8">
+          <span data-reveal="" style="display:inline-flex; align-items:center; padding:8px 20px; border-radius:100px; background:#412B20; color:#FFFBE4; font-size:18px; letter-spacing:.01em; transform:rotate({{ chip.rot }}deg); transition:transform .25s ease, opacity .6s ease;" style-hover="transform:rotate(0deg);">{{ chip.label }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE CARDS -->
+  <section data-stagger="" style="max-width: 1440px; margin: 0 auto; padding: 0 32px 40px; display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; width: 100%">
+    <!-- Book a Viewing -->
+    <article ref="{{ bookRef }}" data-reveal="" style="border-radius:30px; background:#FDE54F; color:#412B20; min-height:585px; padding:30px; display:flex; flex-direction:column; justify-content:space-between;">
+      <div style="font-size:25px; font-weight:500;">Book a Viewing</div>
+      <div style="font-size:34px; font-weight:500; line-height:1.18; max-width:351px;">See the space, feel the light, and imagine <span style="opacity:0.5;">the life that fits here.</span></div>
+      <a href="#footer" style="display:flex; align-items:center; justify-content:space-between; text-decoration:none; color:#412B20;">
+        <span style="font-size:25px; font-weight:500;">Book Now</span>
+        <span style="width:46px; height:46px; border-radius:50%; border:1.5px solid #412B20; display:flex; align-items:center; justify-content:center; transition:background .25s ease, transform .25s ease;" style-hover="background:#412B20; color:#FDE54F; transform:rotate(45deg);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </span>
+      </a>
+    </article>
+    <!-- Image -->
+    <article data-reveal="" style="border-radius:30px; min-height:585px; background:linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('assets/viewing-c.jpg') center/cover no-repeat;"></article>
+    <!-- Flexible Ways to Own -->
+    <article data-reveal="" style="border-radius:30px; background:#412B20; color:#FFFBE4; min-height:585px; padding:30px; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start;">
+      <div style="font-size:25px; font-weight:500;">Flexible Ways to Own</div>
+      <div style="align-self:center; color:#FFFBE4; opacity:.9;"><h-icon name="CirclesFour" size="84"></h-icon></div>
+      <p style="margin:0; max-width:354px; font-size:25px; line-height:1.28; color:#FFFBE4;">Buy outright, schedule a private tour, or request full details — at your pace, your way.</p>
+    </article>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" style="max-width: 1440px; margin: 0 auto; padding: 200px 24px; width: 100%">
+    <div data-reveal="" style="display:flex; flex-direction:column; align-items:center; gap:16px; margin-bottom:80px;">
+      <div style="font-family: Inter Tight; font-size: 12px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(65,43,32,0.5)">Features &amp; Amenities</div>
+      <h2 style="margin: 0; font-family: 'Instrument Serif',serif; font-weight: 400; font-size: 64px; line-height: 1.08; text-align: center; color: #412B20">Designed for everyday living</h2>
+    </div>
+    <div data-stagger="" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start;">
+      <sc-for list="{{ columns }}" as="col" hint-placeholder-count="3">
+        <div data-reveal="" style="display:flex; flex-direction:column; gap:24px;">
+          <div style="font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: rgba(0,0,0,0.5); font-family: Inter Tight">{{ col.title }}</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ col.rows }}" as="row" hint-placeholder-count="5">
+              <div style="display:flex; align-items:center; gap:24px; padding:20px 24px; border-radius:16px; background:rgba(0,0,0,0.02); box-shadow:inset 0 0 0 1px rgba(0,0,0,0.06); transition:background .2s ease, box-shadow .2s ease, transform .2s ease;" style-hover="background:rgba(65,43,32,0.06); box-shadow:inset 0 0 0 1px rgba(65,43,32,0.18); transform:translateY(-2px);">
+                <span style="color:#412B20; display:inline-flex;"><h-icon name="{{ row.icon }}" size="24"></h-icon></span>
+                <span style="font-size:14px; font-weight:500; color:#000;">{{ row.label }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ showImages }}" hint-placeholder-val="{{ true }}">
+            <div style="margin-top:12px; border-radius:16px; aspect-ratio:1/1; background:url({{ col.img }}) center/cover no-repeat;"></div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video" style="position: relative; max-width: 1440px; margin: 0 auto; padding: 120px 24px 160px; overflow: hidden; width: 100%">
+    <div class="float-a" style="position:absolute; left:6%; top:40px; width:203px; height:250px; border-radius:30px; overflow:hidden; background:url('assets/video-1-c.jpg') center/cover no-repeat; transform:rotate(-3deg);"></div>
+    <div class="float-b" style="position:absolute; right:5%; top:50%; width:337px; height:216px; border-radius:30px; overflow:hidden; background:url('assets/video-2-c.jpg') center/cover no-repeat; transform:rotate(2deg);"></div>
+    <div data-reveal="" style="position:relative; max-width:1002px; margin:0 auto; text-align:center;">
+      <h2 style="margin:0; font-family:'Instrument Serif',serif; font-weight:400; font-size:54px; line-height:1.18; color:#412B20;">To truly feel the calm of Harvasta, watch this short film — and let the view speak for itself.</h2>
+      <button onClick="{{ togglePlay }}" class="play-pulse" style="margin-top:64px; width:142px; height:142px; border-radius:50%; border:2px solid #412B20; background:transparent; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; transition:transform .25s ease;" style-hover="transform:scale(1.06);">
+        <span style="width:115px; height:115px; border-radius:50%; background:#412B20; display:flex; align-items:center; justify-content:center;">
+          <svg width="34" height="34" viewBox="0 0 41.4 41.4" fill="#FFFDEE"><path d="M 34 20.7 L 6 37 L 6 4 L 34 20.7 Z"></path></svg>
+        </span>
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding: 60px 45px; display: flex; flex-direction: column; gap: 60px; width: 100%; max-width: 1440px">
+    <div data-reveal="" style="display:flex; flex-direction:column; gap:24px; align-items:center;">
+      <h2 style="margin:0; width:100%; font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(72px,25vw,369px); line-height:.92; letter-spacing:.01em; text-align:center; color:#412B20;">HARVASTA</h2>
+      <a href="#top" style="width:100%; text-align:center; text-decoration:none; background:#412B20; color:#FFFBE4; border-radius:100px; padding:16px; font-size:18px; font-weight:500; letter-spacing:.04em; transition:opacity .2s ease;" style-hover="opacity:.88;">Request a Private Tour</a>
+    </div>
+    <div data-reveal="" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; padding-top:24px;">
+      <div style="display:flex; flex-direction:column; justify-content:space-between; gap:80px;">
+        <p style="margin:0; max-width:412px; font-size:25px; line-height:1.28; color:#412B20;">Live closer to nature, wake up to the mountains, and make every morning feel like a retreat.</p>
+        <span style="font-size:18px; font-weight:500; color:#412B20;">© 2025 Harvasta. All rights reserved.</span>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:space-between; align-items:center; gap:80px;">
+        <div style="display:flex; flex-direction:column; gap:18px; align-items:flex-start;">
+          <a href="#about" style="text-decoration:none; font-size:18px; font-weight:500; color:#412B20;" style-hover="opacity:.6;">About Us</a>
+          <a href="#features" style="text-decoration:none; font-size:18px; font-weight:500; color:#412B20;" style-hover="opacity:.6;">FAQ</a>
+        </div>
+        <a href="#footer" style="text-decoration:none; font-size:18px; font-weight:500; color:#412B20;" style-hover="opacity:.6;">Privacy Policy</a>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:space-between; align-items:center; gap:80px;">
+        <div style="display:flex; flex-direction:column; gap:16px; align-items:flex-start;">
+          <span style="font-size:18px; font-weight:500; color:#412B20;">Follow us</span>
+          <div style="display:flex; gap:18px; color:#412B20;">
+            <a href="#" aria-label="Instagram" style="color:#412B20; display:inline-flex;" style-hover="opacity:.6;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.5"></circle><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"></circle></svg></a>
+            <a href="#" aria-label="YouTube" style="color:#412B20; display:inline-flex;" style-hover="opacity:.6;"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.5 31 31 0 0 0-.4-4.5zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"></path></svg></a>
+            <a href="#" aria-label="X" style="color:#412B20; display:inline-flex;" style-hover="opacity:.6;"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2h3.3l-7.2 8.3L24 22h-6.7l-5.2-6.8L6.1 22H2.8l7.7-8.8L1.5 2h6.8l4.7 6.2L18.9 2zm-1.2 18h1.8L7.4 3.9H5.5L17.7 20z"></path></svg></a>
+          </div>
+        </div>
+        <a href="#" style="text-decoration:none; font-size:18px; font-weight:500; color:#412B20;" style-hover="opacity:.6;">Cookie Settings</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;accentColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FDE54F&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FDE54F&quot;,&quot;#C7E0B8&quot;,&quot;#E8C9A0&quot;,&quot;#412B20&quot;]},&quot;showFeatureImages&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;heroOverlay&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:0.28,&quot;min&quot;:0,&quot;max&quot;:0.6,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  navRef = React.createRef();
+  bookRef = React.createRef();
+  overlayRef = React.createRef();
+  loaderRef = React.createRef();
+  fillRef = React.createRef();
+  pctRef = React.createRef();
+
+  componentDidMount() {
+    this._onScroll = () => {
+      const el = this.navRef.current;
+      if (!el) return;
+      const s = window.scrollY > 60;
+      el.style.background = s ? 'rgba(255,253,238,0.92)' : 'transparent';
+      el.style.backdropFilter = s ? 'blur(10px)' : 'none';
+      el.style.webkitBackdropFilter = s ? 'blur(10px)' : 'none';
+      el.style.borderBottomColor = s ? 'rgba(65,43,32,0.10)' : 'transparent';
+      el.querySelectorAll('[data-navtext]').forEach(l => { l.style.color = s ? '#412B20' : '#FFFDEE'; });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+    this.applyProps();
+    this.setupReveal();
+    this.runLoader();
+  }
+
+  runLoader() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let done = false;
+    const hide = () => {
+      if (done) return;
+      done = true;
+      if (this._int) { clearInterval(this._int); this._int = null; }
+      if (this.fillRef.current) this.fillRef.current.style.width = '100%';
+      if (this.pctRef.current) this.pctRef.current.textContent = '100';
+      const el = this.loaderRef.current;
+      if (el) {
+        el.style.pointerEvents = 'none';
+        el.style.opacity = '0';
+        // display:none is not transition-interpolated, so the loader is
+        // guaranteed gone even if the fade paint is throttled.
+        this._hideT = setTimeout(() => { el.style.display = 'none'; }, 650);
+      }
+    };
+    const dur = reduce ? 300 : 1700;
+    const start = Date.now();
+    // setInterval fires even when the tab/iframe is backgrounded, so the
+    // loader always advances and dismisses (raf can be paused off-screen).
+    this._int = setInterval(() => {
+      const t = Math.min(1, (Date.now() - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const pct = Math.round(eased * 100);
+      if (this.fillRef.current) this.fillRef.current.style.width = pct + '%';
+      if (this.pctRef.current) this.pctRef.current.textContent = String(pct).padStart(2, '0');
+      if (t >= 1) hide();
+    }, 60);
+    // Hard safety net: dismiss no matter what.
+    this._safety = setTimeout(hide, dur + 600);
+  }
+
+  setupReveal() {
+    document.body.classList.add('anim-on');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const t = e.target;
+        io.unobserve(t);
+        if (t.hasAttribute('data-stagger')) {
+          t.querySelectorAll(':scope > [data-reveal]').forEach((k, i) => {
+            setTimeout(() => k.classList.add('in'), i * 90);
+          });
+        } else {
+          t.classList.add('in');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    this._io = io;
+    document.querySelectorAll('[data-stagger]').forEach((s) => io.observe(s));
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      if (!el.closest('[data-stagger]')) io.observe(el);
+    });
+  }
+
+  componentDidUpdate() { this.applyProps(); }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+    if (this._int) clearInterval(this._int);
+    if (this._hideT) clearTimeout(this._hideT);
+    if (this._safety) clearTimeout(this._safety);
+  }
+
+  applyProps() {
+    const accent = this.props.accentColor ?? '#FDE54F';
+    if (this.bookRef.current) this.bookRef.current.style.background = accent;
+    const ov = this.props.heroOverlay ?? 0.28;
+    if (this.overlayRef.current) this.overlayRef.current.style.background = 'rgba(0,0,0,' + ov + ')';
+  }
+
+  togglePlay = () => {
+    this.setState(s => ({ playing: !s.playing }));
+  };
+
+  renderVals() {
+    const chipLabels = ['Yoga', 'Community', 'Modern Living', 'Quiet Retreat', 'Events', 'Mountain View', 'Travel', 'Private Deck'];
+    const rots = [-6, 4, -3, 7, -5, 3, -8, 5];
+    const chips = chipLabels.map((label, i) => ({ label, rot: rots[i] }));
+
+    const columns = [
+      { title: 'Interior Features', img: 'assets/cat-1-c.jpg', rows: [
+        { icon: 'HouseSimple', label: 'Modern Kitchen' },
+        { icon: 'Rows', label: 'Quartz Counters' },
+        { icon: 'Campfire', label: 'Wood Fireplace' },
+        { icon: 'AlignCenterHorizontalSimple', label: 'Hardwood Floors' },
+        { icon: 'Bathtub', label: 'Updated Baths' },
+      ] },
+      { title: 'Exterior Features', img: 'assets/video-1-c.jpg', rows: [
+        { icon: 'Mountains', label: 'Private Deck' },
+        { icon: 'CarSimple', label: 'Gravel Driveway' },
+        { icon: 'Tree', label: 'Simple Landscaping' },
+        { icon: 'Lightbulb', label: 'Outdoor Lighting' },
+        { icon: 'DropSimple', label: 'Garden Space' },
+      ] },
+      { title: 'Utilities & Convenience', img: 'assets/video-2-c.jpg', rows: [
+        { icon: 'Campfire', label: 'Oil Heating' },
+        { icon: 'DropSimple', label: 'Well Water' },
+        { icon: 'WashingMachine', label: 'Stainless Appliances' },
+        { icon: 'Vibrate', label: 'Smoke Detectors' },
+        { icon: 'CheckCircle', label: 'Move-in Ready' },
+      ] },
+    ];
+
+    return {
+      chips,
+      columns,
+      showImages: this.props.showFeatureImages ?? true,
+      navRef: this.navRef,
+      bookRef: this.bookRef,
+      overlayRef: this.overlayRef,
+      loaderRef: this.loaderRef,
+      fillRef: this.fillRef,
+      pctRef: this.pctRef,
+      togglePlay: this.togglePlay,
+    };
+  }
+}
+</script>
+</body>
+</html>

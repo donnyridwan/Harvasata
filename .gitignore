@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Local editor / tooling
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+
+# Build tooling lockfiles (site is dependency-free at runtime)
+site/package-lock.json
+site/package.json
