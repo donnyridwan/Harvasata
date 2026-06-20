@@ -87,12 +87,12 @@
   .hero-title{ position:relative; margin:0 0 1.5vh; font-family:var(--serif); font-size:clamp(64px,25vw,382px); line-height:.95; letter-spacing:.01em; color:#FFFDEE; text-align:center; text-wrap:balance; animation:heroIn .7s .05s cubic-bezier(.16,.84,.3,1) both; }
 
   /* ---------- About ---------- */
-  .about{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:160px 24px; }
+  .about{ padding:160px 24px; }
+  .about-block{ max-width:780px; margin:0 auto; }
   .about .label{ font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(65,43,32,.5); margin-bottom:28px; }
-  .about > div{ display:flex; flex-direction:column; align-items:center; width:100%; }
-  .about h2{ font-family:var(--serif); font-size:54px; line-height:1.18; text-wrap:balance; max-width:900px; margin:0 auto; }
-  .about p{ margin:40px auto 0; max-width:640px; font-size:25px; line-height:1.28; }
-  .chips{ margin:44px auto 0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px; max-width:620px; }
+  .about h2{ font-family:var(--serif); font-size:54px; line-height:1.18; text-wrap:pretty; }
+  .about p{ margin-top:40px; max-width:585px; font-size:25px; line-height:1.28; }
+  .chips{ margin-top:44px; display:flex; flex-wrap:wrap; gap:12px; max-width:560px; }
   .chip{ display:inline-flex; align-items:center; padding:8px 20px; border-radius:100px; background:var(--ink); color:var(--cream-2); font-size:18px; transition:transform .25s ease; }
   .chip:hover{ transform:rotate(0deg)!important; }
 
@@ -238,9 +238,9 @@
 
   <main>
   <!-- ABOUT -->
-  <section class="about wrap" id="about">
-    <div class="label">About Us</div>
-    <div>
+  <section class="about" id="about">
+    <div class="about-block">
+      <div class="label">About Us</div>
       <h2 data-reveal>Cozy cold-spring villa with a modern kitchen, fireplace, and private deck — for sale.</h2>
       <p data-reveal>Tucked between the mountains and the open sky, Harvasta is where stillness meets comfort. A retreat designed for those who want to slow down, breathe deeper, and live a little closer to nature.</p>
       <div class="chips" data-stagger>
