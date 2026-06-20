@@ -85,11 +85,12 @@
   .hero-title{ position:relative; margin:0 0 1.5vh; font-family:var(--serif); font-size:clamp(64px,25vw,382px); line-height:.95; letter-spacing:.01em; color:#FFFDEE; text-align:center; text-wrap:balance; animation:heroIn 1.5s .15s cubic-bezier(.16,.84,.3,1) both; }
 
   /* ---------- About ---------- */
-  .about{ display:grid; grid-template-columns:200px 1fr; gap:48px; align-items:start; padding:160px 120px; }
-  .about .label{ font-size:25px; }
-  .about h2{ font-family:var(--serif); font-size:54px; line-height:1.18; text-wrap:pretty; max-width:760px; }
-  .about p{ margin-top:40px; max-width:585px; font-size:25px; line-height:1.28; }
-  .chips{ margin-top:44px; display:flex; flex-wrap:wrap; gap:12px; max-width:520px; }
+  .about{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:160px 24px; }
+  .about .label{ font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(65,43,32,.5); margin-bottom:28px; }
+  .about > div{ display:flex; flex-direction:column; align-items:center; width:100%; }
+  .about h2{ font-family:var(--serif); font-size:54px; line-height:1.18; text-wrap:balance; max-width:900px; margin:0 auto; }
+  .about p{ margin:40px auto 0; max-width:640px; font-size:25px; line-height:1.28; }
+  .chips{ margin:44px auto 0; display:flex; flex-wrap:wrap; justify-content:center; gap:12px; max-width:620px; }
   .chip{ display:inline-flex; align-items:center; padding:8px 20px; border-radius:100px; background:var(--ink); color:var(--cream-2); font-size:18px; transition:transform .25s ease; }
   .chip:hover{ transform:rotate(0deg)!important; }
 
@@ -164,7 +165,7 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width:1024px){
-    .about{ padding:120px 48px; grid-template-columns:1fr; gap:24px; }
+    .about{ padding:120px 32px; }
     .about h2{ font-size:42px; }
     .features{ padding:140px 24px; }
     .features-head h2{ font-size:48px; }
