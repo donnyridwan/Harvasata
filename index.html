@@ -35,12 +35,15 @@
   }
   *{ box-sizing:border-box; }
   html{ scroll-behavior:smooth; }
-  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+  body{ margin:0; background:var(--cream); color:var(--ink); font-family:var(--sans); overflow-x:hidden; -webkit-font-smoothing:antialiased; font-synthesis:none; }
   img{ display:block; max-width:100%; }
   a{ color:inherit; }
   h1,h2,p{ margin:0; }
   ::selection{ background:var(--accent); color:var(--ink); }
   .wrap{ max-width:var(--maxw); margin:0 auto; width:100%; }
+  /* Instrument Serif ships only a 400 (regular) weight — force it everywhere it's
+     used so headings never get faux-bolded by the browser's default h1/h2 weight. */
+  .hero-title,.about h2,.features-head h2,.video-inner h2,.footer-top h2,#loader .lw,.brand .mark{ font-weight:400; }
 
   /* ---------- Keyframes ---------- */
   @keyframes heroIn { from{ opacity:0; transform:translateY(48px); letter-spacing:.18em; } to{ opacity:1; transform:translateY(0); letter-spacing:.01em; } }
